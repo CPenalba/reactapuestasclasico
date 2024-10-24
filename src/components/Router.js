@@ -18,10 +18,7 @@ export default class Router extends Component {
             path="/detalle/:idEquipo"
             element={<DetallesEquiposElement />}
           />
-           <Route
-            path="/visualizar"
-            element={<VisualizarApuestas />}
-          />
+          <Route path="/visualizar" element={<VisualizarApuestas />} />
         </Routes>
       </BrowserRouter>
     );

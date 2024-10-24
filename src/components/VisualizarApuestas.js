@@ -30,21 +30,26 @@ export default class VisualizarApuestas extends Component {
     e.preventDefault();
     let request = "api/apuestas";
     let url = Global.apiEjemplos + request;
-    let id = parseInt(this.cajaId.current.value);
+    // let id = parseInt(this.cajaId.current.value);
     let usuario = this.cajaUsuario.current.value;
     let resultado = this.cajaResultado.current.value;
     let fecha = this.cajaFecha.current.value;
 
     let apuesta = {
-      idApuesta: id,
+      // idApuesta: id,
       usuario: usuario,
       resultado: resultado,
       fecha: fecha,
     };
     axios.post(url, apuesta).then((resonse) => {
-      this.setState({
-        status: true,
-      });
+      this.setState(
+        {
+          status: true,
+        },
+        () => {
+          this.loadApuestas();
+        }
+      );
     });
   };
 
